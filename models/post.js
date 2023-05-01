@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const { Module } = require('module');
 
 class Post extends Model { }
 
@@ -36,7 +35,7 @@ Post.init(
      sequelize,
      freezeTableName: true,
      underscored: true,
-     modelName: 'painting',   
+     modelName: 'post',   
     }
 );
 
