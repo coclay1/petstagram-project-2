@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS petstagram;
+CREATE DATABASE petstagram;
