@@ -25,6 +25,11 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/new-post', (req, res) => {
+  res.render('new-post');
+});
+
+
 // router.get('/posts/:id', withAuth, async (req, res) => {
 //   try {
 //     const allPosts = await allPosts.findByPk(req.params.id, {
