@@ -3,23 +3,28 @@ const { Post } = require('../models');
 const postData = [
     {
         title: 'Dog',
-        body: 'A Dog'
+        body: 'A Dog',
+        user_id: 1
     },
     {
         title: 'Cat',
-        body: 'A Cat'
+        body: 'A Cat',
+        user_id: 2
     },
     {
         title: 'Fish',
-        body: 'Woof'
+        body: 'Woof',
+        user_id: 3
     },
     {
         title: 'Gecko',
-        body: 'Meow'
+        body: 'Meow',
+        user_id: 4
     },
     {
         title: 'Duck',
-        body: 'Quack'
+        body: 'Quack',
+        user_id: 5
     }
 ];;
 
