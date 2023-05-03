@@ -13,8 +13,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
 //CREATE NEW USER
 router.post('/', async (req, res) => {
   try {
