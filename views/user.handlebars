@@ -1,4 +1,17 @@
-{{log this}}
+<h1>{{user.name}}</h1>
+<p>Email: {{user.email}}</p>
 
-{{user.name}}
+<h2>Posts:</h2>
 
+{{#if user.posts.length}}
+<ul>
+    {{#each user.posts}}
+    <li>
+        <h3>{{this.title}}</h3>
+        <p>{{this.content}}</p>
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>No Post Found for this User</p>
+{{/if}}
