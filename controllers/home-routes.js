@@ -2,6 +2,22 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// router.get('/profile', (req, res) => {
+//   const userId = req.session.user_id;
+//   User.findByPk(UserId, {
+//     inslude: [{model: Post }],
+//   })
+//   .then((userData) => {
+//     const user = userData.get({ plain: true });
+//     res.render('profile', {user});
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//     res.status(500).jsom(err);
+//   });
+// })
+
+
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -58,7 +74,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Posts }],
+      include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
@@ -68,6 +84,7 @@ router.get('/profile', withAuth, async (req, res) => {
       logged_in: true
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
