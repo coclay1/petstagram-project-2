@@ -2,21 +2,6 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/profile', (req, res) => {
-//   const userId = req.session.user_id;
-//   User.findByPk(UserId, {
-//     inslude: [{model: Post }],
-//   })
-//   .then((userData) => {
-//     const user = userData.get({ plain: true });
-//     res.render('profile', {user});
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//     res.status(500).jsom(err);
-//   });
-// })
-
 
 router.get('/', async (req, res) => {
   try {
