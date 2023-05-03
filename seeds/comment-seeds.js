@@ -21,7 +21,7 @@ const commentData = [
         user_id: 4
     },
     {
-      nbody: "nice bulldog",
+      body: "nice bulldog",
       post_id: 5,
       user_id: 5
     }
