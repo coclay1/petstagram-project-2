@@ -1,4 +1,4 @@
-{{log this}}
+{{!-- {{log this}} --}}
 
 <h1>Welcome, {{user.name}}!</h1>
 <p>Email: {{user.email}}</p>
@@ -12,6 +12,7 @@
         <h3>{{this.title}}</h3>
         <p>{{this.content}}</p>
     </li>
+    {{/each}}
 </ul>
 {{else}}
 <p>No Posts Found</p>
