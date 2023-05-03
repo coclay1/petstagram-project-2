@@ -30,27 +30,27 @@ router.get('/new-post', (req, res) => {
 });
 
 
-// router.get('/posts/:id', withAuth, async (req, res) => {
-//   try {
-//     const allPosts = await allPosts.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+router.get('/posts/:id', withAuth, async (req, res) => {
+  try {
+    const singlePost = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-//     const posts = allPosts.get({ plain: true });
+    const post = singlePost.get({ plain: true });
 
-//     res.render('project', {
-//       ...posts,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render('singlepost', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -64,7 +64,7 @@ router.get('/profile', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     res.render('profile', {
-      ...User,
+      ...user,
       logged_in: true
     });
   } catch (err) {
