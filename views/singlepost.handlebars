@@ -1,18 +1,23 @@
 <div class="text-center">
+  <h1>{{post.title}}</h1>
+  <img src="{{post.image}}" alt="POST IMAGE">
+  <p>Posted by {{user.name}} on {{post.createdAt}}</p>
+  <p>{{post.content}}</p>
   {{log this}}
+
+
   <form>
-    
+    <label for="comment">Leave a comment here !</label>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+    <br>
+    <button type="submit">SUBMIT</button>
   </form>
-  {{!-- <h2>{{name}}</h2>
-  
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p> --}}
+
+  <h3>COMMENTS:</h3>
+  {{#each post.comments}}
+  <div class="comment">
+    <p>Comment by {{this.user}}:</p>
+    <p>{{this.body}}</p>
+  </div>
+{{/each}}
 </div>
