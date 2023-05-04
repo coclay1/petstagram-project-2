@@ -38,8 +38,9 @@ const commentFormHandler = async function (event) {
           'Content-Type': 'application/json'
         }
       });
+      
       const data = await response.json();
-  
+  console.log(data)
       // create a new comment element
       const commentElement = document.createElement('div');
       commentElement.classList.add('comment');
