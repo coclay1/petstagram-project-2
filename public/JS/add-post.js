@@ -1,6 +1,7 @@
 const addPostForm = document.querySelector('#add-post-form');
 const titleInput = document.querySelector('#title');
 const bodyInput = document.querySelector('#body');
+let imageUrl = '';
 
 // Listen for the submit event on the form
 addPostForm.addEventListener('submit', async (event) => {
@@ -45,6 +46,7 @@ var myWidget = cloudinary.createUploadWidget({
     uploadPreset: 'fbuysf1t'}, (error, result) => { 
       if (!error && result && result.event === "success") { 
         console.log('Done! Here is the image info: ', result.info); 
+        imageUrl = result.info.url
       }
     });
 
@@ -54,10 +56,10 @@ const addPostFormHandler = async (event) => {
   const title = document.querySelector('#title').value.trim();
   const body = document.querySelector('#body').value.trim();
   const imageInput = document.querySelector('#image');
-  let imageUrl = '';
+  
   
 
-  if (title && body) {
+  if (title && body && imageUrl) {
     const response = await fetch('/api/posts', {
       method: 'POST',
       body: JSON.stringify({
