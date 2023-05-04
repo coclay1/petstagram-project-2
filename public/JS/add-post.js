@@ -1,4 +1,3 @@
-// Get references to the form and its input elements
 const addPostForm = document.querySelector('#add-post-form');
 const titleInput = document.querySelector('#title');
 const bodyInput = document.querySelector('#body');

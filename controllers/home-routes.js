@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/other-users/:id', async (req, res) => {
+router.get('/other-users/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
@@ -46,10 +46,10 @@ router.get('/other-users/:id', async (req, res) => {
 });
 
 
-router.get('/new-post', async (req, res) => {
+router.get('/new-post', withAuth, async (req, res) => {
   try {
     res.render('new-post', {
-      logged_in: true
+        logged_in: true
     });
   } catch (err) {
     console.log(err)
