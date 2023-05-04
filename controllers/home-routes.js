@@ -38,6 +38,7 @@ router.get('/other-users/:id', async (req, res) => {
         user,
         logged_in: true
       })
+    
 
   } catch (err) {
     res.status(400).json(err);

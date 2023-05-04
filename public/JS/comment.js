@@ -40,12 +40,14 @@ const commentFormHandler = async function (event) {
       });
       
       const data = await response.json();
-  console.log(data)
+      console.log(data)
+  
       // create a new comment element
       const commentElement = document.createElement('div');
       commentElement.classList.add('comment');
       commentElement.innerHTML = `
-        <p>Comment by ${data.user}:</p>
+        <p>Comment by User Number: ${data.user_id}</p>
+    
         <p>${data.body}</p>
       `;
   
