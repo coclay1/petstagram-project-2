@@ -38,15 +38,22 @@ router.get('/other-users/:id', async (req, res) => {
         user,
         logged_in: true
       })
-    // res.status(200).json(userData);
 
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get('/new-post', (req, res) => {
-  res.render('new-post');
+
+router.get('/new-post', async (req, res) => {
+  try {
+    res.render('new-post', {
+      logged_in: true
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
 });
 
 
