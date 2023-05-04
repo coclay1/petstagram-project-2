@@ -35,3 +35,48 @@ addPostForm.addEventListener('submit', async (event) => {
     alert('Error creating post');
   }
 });
+
+const addPostFormHandler = async (event) => {
+  event.preventDefault();
+
+  const title = document.querySelector('#title').value.trim();
+  const body = document.querySelector('#body').value.trim();
+  const imageInput = document.querySelector('#image');
+  let imageUrl = '';
+
+  if (imageInput.files.length > 0) {
+    const formData = new FormData();
+    formData.append('file', imageInput.files[0]);
+    formData.append('upload_preset', 'your_cloudinary_upload_preset');
+
+    const response = await fetch('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', {
+      method: 'POST',
+      body: formData
+    });
+
+    const data = await response.json();
+    imageUrl = data.secure_url;
+  }
+
+  if (title && body) {
+    const response = await fetch('/api/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title,
+        body,
+        imageUrl
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to add post');
+    }
+  }
+};
+
+document.querySelector('#add-post-form').addEventListener('submit', addPostFormHandler);
