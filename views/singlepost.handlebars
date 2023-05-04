@@ -3,7 +3,7 @@
   <img src="{{post.image}}" alt="POST IMAGE">
   <p>Posted by {{user.name}} on {{createdAt}}</p>
   <p>{{post.content}}</p>
-  {{!-- {{log this}} --}}
+  {{log this}}
 </div>
 
   <form method="POST" id="commentSubmit">
@@ -14,11 +14,11 @@
   </form>
 
   <h3 id="comments">COMMENTS:</h3>
-  {{#each Comment}}
-  {{log this}}
+  {{#each comments as |comment|}}
+  
   <div class="comment">
-    <p>Comment by {{this.user}}:</p>
-    <p>{{this.body}}</p>
+    <p>Comment by {{comment.user.name}}:</p>
+    <p>{{comment.body}}</p>
   </div>
 {{/each}}
 
