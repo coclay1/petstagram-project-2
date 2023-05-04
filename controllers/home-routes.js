@@ -124,4 +124,22 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/users/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(
+      req.params.id
+      );
+      const user = userData.get({plain :true})
+      res.render('user', {
+        user,
+        logged_in: true
+      })
+
+      res.status(200).json(userData);
+  
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
