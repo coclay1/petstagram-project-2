@@ -6,14 +6,14 @@
   {{!-- {{log this}} --}}
 </div>
 
-  <form id="commentSubmit">
+  <form method="POST" id="commentSubmit">
     <label for="comment">Leave a comment here !</label>
     <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
     <br>
     <button type="submit">SUBMIT</button>
   </form>
 
-  <h3>COMMENTS:</h3>
+  <h3 id="comments">COMMENTS:</h3>
   {{#each Comment}}
   {{log this}}
   <div class="comment">
