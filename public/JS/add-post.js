@@ -36,6 +36,18 @@ addPostForm.addEventListener('submit', async (event) => {
   }
 });
 
+document.getElementById("upload_widget").addEventListener("click", function(){
+      myWidget.open();
+    }, false);
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'ddiyjjqhn', 
+    uploadPreset: 'fbuysf1t'}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        console.log('Done! Here is the image info: ', result.info); 
+      }
+    });
+
 const addPostFormHandler = async (event) => {
   event.preventDefault();
 
@@ -43,20 +55,7 @@ const addPostFormHandler = async (event) => {
   const body = document.querySelector('#body').value.trim();
   const imageInput = document.querySelector('#image');
   let imageUrl = '';
-
-  if (imageInput.files.length > 0) {
-    const formData = new FormData();
-    formData.append('file', imageInput.files[0]);
-    formData.append('upload_preset', 'your_cloudinary_upload_preset');
-
-    const response = await fetch('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', {
-      method: 'POST',
-      body: formData
-    });
-
-    const data = await response.json();
-    imageUrl = data.secure_url;
-  }
+  
 
   if (title && body) {
     const response = await fetch('/api/posts', {
