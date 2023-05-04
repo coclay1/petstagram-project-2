@@ -5,6 +5,7 @@ const commentFormHandler = async function (event) {
     const body = document.querySelector('#comment').value;
 
     if (body) {
+
         const response = await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({
@@ -21,6 +22,7 @@ const commentFormHandler = async function (event) {
         const commentElement = document.createElement('div');
         commentElement.classList.add('comment');
         commentElement.innerHTML = `
+
         <p>Comment by User Number: ${data.user_id}</p>
     
         <p>${data.body}</p>
