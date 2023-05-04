@@ -1,17 +1,18 @@
-<h1>{{user.name}}</h1>
-<p>Email: {{user.email}}</p>
+<h1 class="title">{{user.name}}</h1>
+<p class="subtitle">Email: {{user.email}}</p>
 
-<h2>Posts:</h2>
+<h2 class="title is-2">Posts:</h2>
 
 {{#if user.posts.length}}
 <ul>
     {{#each user.posts}}
     <li>
-        <h3>{{this.title}}</h3>
-        <p>{{this.content}}</p>
+        <h3 class="title is-3">{{this.title}}</h3>
+        <p class="content">{{this.content}}</p>
     </li>
     {{/each}}
 </ul>
 {{else}}
-<p>No Post Found for this User</p>
+<p class="content">No Post Found for this User</p>
 {{/if}}
+

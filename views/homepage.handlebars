@@ -1,4 +1,4 @@
-{{log this}}
+
 {{#each posts as |post| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -9,7 +9,7 @@
     <p>
       {{post.body}}
     </p>
-    <p>Created by <a href="/users/{{post.user_id}}">{{post.user.name}}</a></p>
+    <p>Created by <a href="/other-users/{{post.user_id}}">{{post.user.name}}</a></p>
   </div>
   <div class="col-md-7">
   </div>
