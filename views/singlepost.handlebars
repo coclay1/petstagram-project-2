@@ -3,10 +3,10 @@
   <img src="{{post.image}}" alt="POST IMAGE">
   <p>Posted by {{user.name}} on {{createdAt}}</p>
   <p>{{post.content}}</p>
-  {{log this}}
+  {{!-- {{log this}} --}}
+</div>
 
-
-  <form>
+  <form id="commentSubmit">
     <label for="comment">Leave a comment here !</label>
     <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
     <br>
@@ -14,10 +14,12 @@
   </form>
 
   <h3>COMMENTS:</h3>
-  {{#each post.comments}}
+  {{#each Comment}}
+  {{log this}}
   <div class="comment">
     <p>Comment by {{this.user}}:</p>
     <p>{{this.body}}</p>
   </div>
 {{/each}}
-</div>
+
+<script src="/JS/comment.js"></script>
