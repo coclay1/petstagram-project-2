@@ -2,13 +2,14 @@
 <div class="text-center">
   <h1>{{title}}</h1>
   <img src="{{imageUrl}}" alt="POST IMAGE">
-  <p>Posted by {{user.name}} on {{createdAt}}</p>
+  <p>Posted by {{user.name}} on {{created_at}}</p>
   <p>{{post.content}}</p>
   {{log this}}
 </div>
 
   <form method="POST" id="commentSubmit">
     <label for="comment">Leave a comment here !</label>
+    <br>
     <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
     <br>
     <button type="submit">SUBMIT</button>
@@ -16,7 +17,7 @@
 
   <h3 id="comments">COMMENTS:</h3>
   {{#each comment as |comment|}}
-  
+  {{log comments}}
   <div class="comment">
     <p>Comment by {{comment.user.name}}:</p>
     <p>{{comment.body}}</p>
