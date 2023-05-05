@@ -1,7 +1,7 @@
 const addPostForm = document.querySelector('#add-post-form');
 const titleInput = document.querySelector('#title');
 const bodyInput = document.querySelector('#body');
-let imageUrl
+let imageUrl = '';
 
 
 addPostForm.addEventListener('submit', async (event) => {
@@ -16,7 +16,7 @@ addPostForm.addEventListener('submit', async (event) => {
     alert('Please fill out all fields.');
     return;
   }
-
+  
   if (!imageUrl) {
     alert('Please upload an image.');
     return;
