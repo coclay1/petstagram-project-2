@@ -2,7 +2,7 @@
 <div class="container">
   <div class="columns">
     <div class="column is-two-thirds">
-      {{#each posts as |post| }}
+      {{#each (reverse posts) as |post| }}
       <div class="card mb-4 project">
         <div class="card-content">
           <p class="title"><a href="/posts/{{post.id}}">{{post.title}}</a></p>
