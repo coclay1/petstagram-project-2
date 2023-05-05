@@ -11,6 +11,13 @@
             <br>
             <p>Created by <a href="/other-users/{{post.user_id}}">{{post.user.name}}</a></p>
           </div>
+          {{#if post.imageUrl}}
+          <div class="card-image">
+            <figure class="image is-128x128">
+              <img src="{{post.imageUrl}}" alt="Image">
+            </figure>
+          </div>
+          {{/if}}
         </div>
       </div>
       {{/each}}
