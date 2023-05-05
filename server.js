@@ -17,7 +17,9 @@ handlebars.registerHelper('reverse', function(arr) {
   return arr.reverse();
 });
 
-
+// handlebars.registerHelper('formatDate', function(date) {
+//   return date.toLocaleDateString();
+// });
 
 const sess = {
   secret: 'Super secret secret',
