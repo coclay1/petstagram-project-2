@@ -16,7 +16,7 @@
   </form>
 
   <h3 class="title is-3 mt-4" id="comments">COMMENTS:</h3>
-  {{#each comments as |comment|}}
+  {{#each (reverse comments) as |comment|}}
   {{log comments}}
   <div class="comment">
     <p>Comment by {{comment.user.name}}:</p>
